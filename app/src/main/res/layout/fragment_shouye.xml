@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.wenjian.loopbanner.LoopBanner
+            android:id="@+id/loopBanner"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            app:lb_indicatorGravity="bottomRight"
+            app:lb_indicatorStyle="pill"
+            app:lb_interval="4000"
+            app:lb_lrMargin="16dp"
+            app:lb_pageMargin="4dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+
+            <TextView
+                android:id="@+id/xiangmu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/zm_p"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:text="项目"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tixi"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/zm_s"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:text="体系"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/wenda"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/zm_q"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:text="问答"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/mianshi"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/zm_i"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:text="面试"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/meitu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/zm_g"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:text="美图"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            app:tabIndicator="@null"
+            app:tabRippleColor="@color/white"
+            app:tabSelectedTextColor="@color/colorAccent"></com.google.android.material.tabs.TabLayout>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
+</layout>

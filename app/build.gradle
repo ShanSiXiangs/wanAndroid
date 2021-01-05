@@ -20,6 +20,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildFeatures {
+        dataBinding = true //配置支持使用dataBinding
+    }
 }
 
 dependencies {
@@ -30,4 +34,30 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    implementation "com.google.android.material:material:1.2.1"
+    //轮播图
+    implementation 'com.github.wenjiangit:LoopBanner:2.0.3'
+    //网络图片加载
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    //网络请求  异步操作
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    implementation 'io.reactivex:rxandroid:1.2.0'
+    //日志打印
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    //数据解析
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    //网页加载
+    implementation 'com.just.agentweb:agentweb-androidx:4.1.4'
+    implementation 'com.just.agentweb:filechooser-androidx:4.1.4'
+    implementation 'com.download.library:downloader-androidx:4.1.4'
+    //刷新加载
+    implementation 'com.scwang.smart:refresh-layout-kernel:2.0.1'
+    implementation  'com.scwang.smart:refresh-header-classics:2.0.1'    //经典刷新头
+//    implementation  'com.scwang.smart:refresh-header-radar:2.0.2'       //雷达刷新头
+//    implementation  'com.scwang.smart:refresh-header-falsify:2.0.2'     //虚拟刷新头
+//    implementation  'com.scwang.smart:refresh-header-material:2.0.2'    //谷歌刷新头
+//    implementation  'com.scwang.smart:refresh-header-two-level:2.0.2'   //二级刷新头
+//    implementation  'com.scwang.smart:refresh-footer-ball:2.0.2'        //球脉冲加载
+    implementation  'com.scwang.smart:refresh-footer-classics:2.0.1'    //经典加载
 }
