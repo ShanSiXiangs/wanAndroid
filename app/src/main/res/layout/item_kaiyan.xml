@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/theMap"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/colorAccent"/>
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:background="@drawable/round4_777777"
+            android:layout_alignBottom="@id/theMap"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"/>
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/round4_777777"
+            android:layout_below="@id/theMap"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"/>
+
+       <TextView
+           android:id="@+id/title"
+           android:layout_width="wrap_content"
+           android:layout_height="25dp"
+           android:text="title"
+           android:textColor="@color/color_383838"
+           android:textSize="16dp"
+           android:layout_alignTop="@id/icon"
+           android:layout_toRightOf="@id/icon"/>
+
+        <TextView
+            android:id="@+id/from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="from"
+            android:textSize="14sp"
+            android:textColor="@color/color_555555"
+            android:layout_below="@id/title"
+            android:layout_toRightOf="@id/icon"/>
+
+
+
+
+
+
+
+    </RelativeLayout>
+</layout>

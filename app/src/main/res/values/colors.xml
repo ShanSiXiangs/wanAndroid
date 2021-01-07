@@ -5,5 +5,8 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="bottonGrey">#8a8a8a</color>
     <color name="white" >#ffffff</color>
+    <color name="color_0D53DF">#0D53DF</color>
+    <color name="color_383838">#383838</color>
+    <color name="color_555555">#555555</color>
 
 </resources>

@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+import com.sx.wanandroid.Activity.MeiTuActivity;
 import com.sx.wanandroid.Activity.WebviewActivity;
 import com.sx.wanandroid.Adapter.ShouYeViewPageAdapter;
 import com.sx.wanandroid.DataBean.BannerBean;
@@ -53,6 +54,10 @@ public class ShouYeFragment extends Fragment implements View.OnClickListener {
      */
     private void initData() {
         binding.xiangmu.setOnClickListener(this);
+        binding.tixi.setOnClickListener(this);
+        binding.wenda.setOnClickListener(this);
+        binding.mianshi.setOnClickListener(this);
+        binding.meitu.setOnClickListener(this);
     }
 
     /**
@@ -80,7 +85,7 @@ public class ShouYeFragment extends Fragment implements View.OnClickListener {
     private void initTabLayout() {
         final String[] titles = new String[]{"热门博文", "热门项目"};
         Fragment[] Fragments = new Fragment[]{new HotBoWenFragment(), new HotXiangMuFragment()};
-        binding.viewPager.setAdapter(new ShouYeViewPageAdapter(getActivity().getSupportFragmentManager(), getLifecycle(), Fragments));
+        binding.viewPager.setAdapter(new ShouYeViewPageAdapter(getChildFragmentManager(), getLifecycle(), Fragments));
         TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(binding.tabLayout, binding.viewPager, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
@@ -111,7 +116,7 @@ public class ShouYeFragment extends Fragment implements View.OnClickListener {
 
                 break;
             case R.id.meitu:
-
+                MeiTuActivity.startMeiTuActivity(getActivity());
                 break;
         }
     }

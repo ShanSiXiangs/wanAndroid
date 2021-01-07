@@ -10,6 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitHelper {
 
+    public static String baseUrl ="https://www.wanandroid.com";
     private static RetrofitHelper retrofitHelper;
     private Retrofit mRetrofit;
 
@@ -35,7 +36,7 @@ public class RetrofitHelper {
                 .addInterceptor(logging)//添加日志拦截器
                 .build();
         mRetrofit = new Retrofit.Builder()
-                .baseUrl("https://www.wanandroid.com")
+                .baseUrl(baseUrl)
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().create()))
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())

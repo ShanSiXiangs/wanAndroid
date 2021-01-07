@@ -2,7 +2,11 @@ package com.sx.wanandroid.NetWork;
 
 import com.sx.wanandroid.DataBean.BannerBean;
 import com.sx.wanandroid.DataBean.BoWenXiangMuBean;
+import com.sx.wanandroid.DataBean.GongZhongHaoBean;
+import com.sx.wanandroid.DataBean.GongZhongSomeOneBean;
+import com.sx.wanandroid.DataBean.GuangChangBean;
 import com.sx.wanandroid.DataBean.LoginBean;
+import com.sx.wanandroid.DataBean.MeiTuBean;
 import com.sx.wanandroid.DataBean.RegistBean;
 
 import rx.Observer;
@@ -29,8 +33,8 @@ public class DataManager {
         retrofitService = RetrofitHelper.Instance().getRetrofitService();
     }
 
-    public void getRegist(String username, String password,String repassword, final RequestListener requestListener) {
-        retrofitService.Regist(username, password,repassword)
+    public void getRegist(String username, String password, String repassword, final RequestListener requestListener) {
+        retrofitService.Regist(username, password, repassword)
                 .subscribeOn(ioScheduler)
                 .observeOn(mainScheduler)
                 .subscribe(new Observer<RegistBean>() {
@@ -95,8 +99,8 @@ public class DataManager {
                 });
     }
 
-    public void getBoWen(int pageNum,Integer cid , final RequestListener requestListener) {
-        retrofitService.BoWen(pageNum,cid)
+    public void getBoWen(int pageNum, Integer cid, final RequestListener requestListener) {
+        retrofitService.BoWen(pageNum, cid)
                 .subscribeOn(ioScheduler)
                 .observeOn(mainScheduler)
                 .subscribe(new Observer<BoWenXiangMuBean>() {
@@ -117,8 +121,8 @@ public class DataManager {
                 });
     }
 
-    public void getXiangMu(int pageNum,Integer cid , final RequestListener requestListener) {
-        retrofitService.XiangMu(pageNum,cid)
+    public void getXiangMu(int pageNum, Integer cid, final RequestListener requestListener) {
+        retrofitService.XiangMu(pageNum, cid)
                 .subscribeOn(ioScheduler)
                 .observeOn(mainScheduler)
                 .subscribe(new Observer<BoWenXiangMuBean>() {
@@ -139,7 +143,96 @@ public class DataManager {
                 });
     }
 
+    public void getGongZhongHao(final RequestListener requestListener) {
+        retrofitService.GongZhongHao()
+                .subscribeOn(ioScheduler)
+                .observeOn(mainScheduler)
+                .subscribe(new Observer<GongZhongHaoBean>() {
+                    @Override
+                    public void onNext(GongZhongHaoBean gongZhongHaoBean) {
+                        requestListener.succeed(gongZhongHaoBean);
+                    }
 
+                    @Override
+                    public void onError(Throwable e) {
+                        requestListener.failed();
+                    }
+
+                    @Override
+                    public void onCompleted() {
+
+                    }
+                });
+    }
+
+    public void getGongZhongSomeOne(int id,int pageNum,final RequestListener requestListener) {
+        retrofitService.GongZhongSomeOne(id,pageNum)
+                .subscribeOn(ioScheduler)
+                .observeOn(mainScheduler)
+                .subscribe(new Observer<GongZhongSomeOneBean>() {
+                    @Override
+                    public void onNext(GongZhongSomeOneBean gongZhongSomeOneBean) {
+                        requestListener.succeed(gongZhongSomeOneBean);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        requestListener.failed();
+                    }
+
+                    @Override
+                    public void onCompleted() {
+
+                    }
+                });
+    }
+
+    public void getGuangChang(int pageNum,final RequestListener requestListener) {
+        retrofitService.GuangChang(pageNum)
+                .subscribeOn(ioScheduler)
+                .observeOn(mainScheduler)
+                .subscribe(new Observer<GuangChangBean>() {
+                    @Override
+                    public void onNext(GuangChangBean guangChangBean) {
+                        requestListener.succeed(guangChangBean);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        requestListener.failed();
+                    }
+
+                    @Override
+                    public void onCompleted() {
+
+                    }
+                });
+    }
+
+    public void getMeiTu(int pageNum,final RequestListener requestListener) {
+        RetrofitHelper.baseUrl = "";
+        retrofitService.MeiTu(pageNum)
+                .subscribeOn(ioScheduler)
+                .observeOn(mainScheduler)
+                .subscribe(new Observer<MeiTuBean>() {
+                    @Override
+                    public void onNext(MeiTuBean meiTuBean) {
+                        RetrofitHelper.baseUrl = "https://www.wanandroid.com";
+                        requestListener.succeed(meiTuBean);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        RetrofitHelper.baseUrl = "https://www.wanandroid.com";
+                        requestListener.failed();
+                    }
+
+                    @Override
+                    public void onCompleted() {
+                        RetrofitHelper.baseUrl = "https://www.wanandroid.com";
+                    }
+                });
+    }
 
     /**
      * 网络请求回调
